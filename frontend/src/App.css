@@ -1,0 +1,196 @@
+/* Additional custom styles for the app */
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Navigation styles */
+.nav-item {
+  @apply flex items-center px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200;
+}
+
+.nav-item.active {
+  @apply bg-primary-600 text-white;
+}
+
+.nav-item:not(.active) {
+  @apply text-gray-600 hover:text-gray-900 hover:bg-gray-50;
+}
+
+/* Dashboard widgets */
+.widget {
+  @apply bg-white rounded-xl shadow-md p-6 transition-all duration-200 hover:shadow-lg;
+}
+
+.widget-header {
+  @apply flex items-center justify-between mb-4;
+}
+
+.widget-title {
+  @apply text-lg font-semibold text-gray-800;
+}
+
+.widget-icon {
+  @apply w-8 h-8 text-primary-600;
+}
+
+/* Reminder card styles */
+.reminder-card {
+  @apply bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-3 transition-all duration-200 hover:shadow-md cursor-pointer;
+}
+
+.reminder-title {
+  @apply font-semibold text-gray-800 mb-1;
+}
+
+.reminder-description {
+  @apply text-gray-600 text-sm mb-2;
+}
+
+.reminder-meta {
+  @apply flex items-center justify-between text-xs text-gray-500;
+}
+
+/* Todo styles */
+.todo-item {
+  @apply flex items-center p-3 bg-white rounded-lg border border-gray-200 mb-2 transition-all duration-200 hover:shadow-sm;
+}
+
+.todo-checkbox {
+  @apply mr-3 rounded text-primary-600 focus:ring-primary-500 focus:ring-offset-0;
+}
+
+.todo-content {
+  @apply flex-1;
+}
+
+.todo-title {
+  @apply font-medium text-gray-800;
+}
+
+.todo-title.completed {
+  @apply line-through text-gray-500;
+}
+
+/* Habit tracker styles */
+.habit-card {
+  @apply bg-white rounded-lg p-4 border border-gray-200 shadow-sm;
+}
+
+.habit-streak {
+  @apply flex items-center justify-center w-12 h-12 bg-primary-100 rounded-full text-primary-700 font-bold text-lg;
+}
+
+.habit-calendar {
+  @apply grid grid-cols-7 gap-1 mt-4;
+}
+
+.habit-day {
+  @apply w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-colors duration-200;
+}
+
+.habit-day.completed {
+  @apply bg-green-500 text-white;
+}
+
+.habit-day.today {
+  @apply bg-primary-500 text-white;
+}
+
+.habit-day.inactive {
+  @apply bg-gray-100 text-gray-400;
+}
+
+/* Weather widget styles */
+.weather-card {
+  @apply bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-xl p-6 shadow-lg;
+}
+
+.weather-temp {
+  @apply text-4xl font-bold mb-2;
+}
+
+.weather-condition {
+  @apply text-xl font-medium opacity-90;
+}
+
+.weather-details {
+  @apply grid grid-cols-2 gap-4 mt-4 pt-4 border-t border-blue-300;
+}
+
+.weather-detail {
+  @apply text-center;
+}
+
+.weather-detail-value {
+  @apply text-lg font-semibold;
+}
+
+.weather-detail-label {
+  @apply text-sm opacity-80;
+}
+
+/* Modal styles */
+.modal {
+  @apply fixed inset-0 z-50 overflow-y-auto;
+}
+
+.modal-content {
+  @apply bg-white rounded-lg shadow-xl max-w-md w-full mx-4 my-8 transform transition-all duration-300;
+}
+
+.modal-header {
+  @apply px-6 py-4 border-b border-gray-200;
+}
+
+.modal-title {
+  @apply text-lg font-semibold text-gray-800;
+}
+
+.modal-body {
+  @apply px-6 py-4;
+}
+
+.modal-footer {
+  @apply px-6 py-4 border-t border-gray-200 flex justify-end space-x-3;
+}
+
+/* Settings page styles */
+.settings-section {
+  @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6;
+}
+
+.settings-title {
+  @apply text-lg font-semibold text-gray-800 mb-4;
+}
+
+.module-toggle {
+  @apply flex items-center justify-between py-3 border-b border-gray-100 last:border-b-0;
+}
+
+.module-info {
+  @apply flex-1;
+}
+
+.module-name {
+  @apply font-medium text-gray-800;
+}
+
+.module-description {
+  @apply text-sm text-gray-600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .modal-content {
+    @apply mx-2 my-4;
+  }
+  
+  .widget {
+    @apply p-4;
+  }
+  
+  .weather-details {
+    @apply grid-cols-1;
+  }
+}
