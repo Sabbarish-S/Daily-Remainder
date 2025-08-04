@@ -306,7 +306,9 @@ async def create_todo(todo: TodoCreate, current_user: dict = Depends(get_current
         "created_at": datetime.utcnow().isoformat()
     }
     
-    db.todos.insert_one(todo_doc)
+    result = db.todos.insert_one(todo_doc)
+    # Remove the MongoDB _id field for JSON serialization
+    todo_doc.pop('_id', None)
     return {"message": "Todo created successfully", "todo": todo_doc}
 
 @app.put("/api/todos/{todo_id}")
