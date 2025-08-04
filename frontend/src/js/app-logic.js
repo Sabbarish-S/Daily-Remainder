@@ -811,6 +811,29 @@ class DailyReminderApp {
     `);
   }
 
+  showConfirmDialog(message) {
+    return new Promise((resolve) => {
+      this.showModal(`
+        <div class="modal-header">
+          <h3 class="modal-title">Confirm Action</h3>
+        </div>
+        <div class="modal-body">
+          <p class="text-gray-700">${message}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="window.confirmResolve(false)" class="btn-secondary">Cancel</button>
+          <button type="button" onclick="window.confirmResolve(true)" class="btn-danger">Delete</button>
+        </div>
+      `);
+      
+      window.confirmResolve = (result) => {
+        this.closeModal();
+        delete window.confirmResolve;
+        resolve(result);
+      };
+    });
+  }
+
   showModal(content) {
     const modal = document.createElement('div');
     modal.className = 'modal modal-backdrop flex items-center justify-center';
