@@ -251,7 +251,9 @@ async def create_reminder(reminder: ReminderCreate, current_user: dict = Depends
         "completed": False
     }
     
-    db.reminders.insert_one(reminder_doc)
+    result = db.reminders.insert_one(reminder_doc)
+    # Remove the MongoDB _id field for JSON serialization
+    reminder_doc.pop('_id', None)
     return {"message": "Reminder created successfully", "reminder": reminder_doc}
 
 @app.put("/api/reminders/{reminder_id}")
