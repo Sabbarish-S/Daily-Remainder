@@ -943,7 +943,8 @@ class DailyReminderApp {
   }
 
   async deleteReminder(id) {
-    if (!confirm('Are you sure you want to delete this reminder?')) return;
+    // Use custom confirmation instead of browser confirm
+    if (!await this.showConfirmDialog('Are you sure you want to delete this reminder?')) return;
     
     try {
       const response = await fetch(`${API_BASE_URL}/api/reminders/${id}`, {
